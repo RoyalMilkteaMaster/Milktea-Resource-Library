@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Milktea Resource Library 隱私權政策</title>
+</head>
+<body>
+<h1>Milktea Resource Library 隱私權政策</h1>
+<p><a href="index.html">回到首頁</a></p>
+<p>頁面更新日：2026-10-16</p>
+<p>目前狀態：本套件仍在驗收中。本政策說明工具的設計行為，不代表已通過完整驗收，也不代表已通過 Google 驗證。</p>
+
+<h2>1. 適用範圍</h2>
+<p>本政策說明 Milktea Resource Library 的 YouTube 功能如何存取、使用、保存與分享透過 YouTube API Services 取得的資料。</p>
+<ul>
+  <li>Milktea Resource Library 是在使用者自己電腦上執行的個人工作流。每位使用者以自己建立的 Google Cloud project 與 Desktop OAuth client 授權。</li>
+  <li>使用 YouTube 功能即表示同意受 <a href="https://www.youtube.com/t/terms">YouTube 服務條款</a>約束。</li>
+  <li>Google 對你資料的處理，見 <a href="https://policies.google.com/privacy">Google 隱私權政策</a>。</li>
+</ul>
+
+<h2>2. 讀取哪些資料</h2>
+<p>唯一要求的權限是 <code>youtube.readonly</code>（唯讀）。工具只讀取：</p>
+<ul>
+  <li>授權帳號的 channel ID 與名稱，用來確認是你設定的 channel。</li>
+  <li>你指定的一個播放清單的 ID、名稱、所屬 channel、隱私狀態與項目數，用來確認清單屬於你。</li>
+  <li>清單項目與影片的 ID、標題、說明、上傳 channel 的 ID 與名稱、加入清單與發布的時間、可見狀態，以及你在項目上的備註。</li>
+  <li>分頁資訊（下一頁游標與平台回報的總筆數），用來確認是否讀完。</li>
+  <li>OAuth 憑證：access token、refresh token、到期時間與授予的權限。</li>
+</ul>
+<p>工具不讀取稍後觀看、觀看紀錄、訂閱、留言或其他清單，也不新增、修改或刪除任何 YouTube 內容，不觀看影片。</p>
+
+<h2>3. 如何使用</h2>
+<ul>
+  <li>確認授權的是你設定的 channel，且指定清單屬於該 channel。</li>
+  <li>以影片標題與說明作為發現材料，找出影片介紹的原始資源。收藏的摘要依據已核實的原始資源，不依據影片內容，也不宣稱看過影片。</li>
+  <li>標示重複、已刪除或不可見的影片，以及這次是否讀完整份清單。</li>
+</ul>
+<p>資料不用於廣告、不出售，也不用於與上述整理功能無關的用途。</p>
+
+<h2>4. YouTube 來源內容只在當次整理中使用</h2>
+<ul>
+  <li>YouTube 回傳的來源內容（ID、名稱、標題、說明、時間與狀態等），只在當次整理的執行過程中使用。工具不把它寫入本機的持久來源快取、授權結果或驗證紀錄。</li>
+  <li>跨次只保留不含 YouTube 內容的狀態：上次是否讀完、是否需要重新讀取或重新授權，以及時間。</li>
+  <li>下次整理會重新讀取整份播放清單，再以已核實的原始資源與 Raindrop 讀回結果去重。</li>
+  <li>上次未完成的來源內容不保留；若已被刪除、移出清單或失去權限，可能無法恢復。工具會標示前次未完成與本次重新讀取的範圍，不宣稱已還原上次原文。</li>
+</ul>
+
+<h2>5. 保存在你電腦上的資料</h2>
+<p>下列資料保存在你自己選定的私人資料夾，不在程式資料夾或分享套件內：</p>
+<ul>
+  <li>你填寫的設定：OAuth client ID 與 secret、播放清單 ID、你確認過的 channel ID。</li>
+  <li>OAuth 授權資料：access token、refresh token、到期時間、權限，以及這組授權對應的 channel ID。這些是自動刷新授權所必需的。</li>
+  <li>不含 YouTube 內容的重新讀取／重新授權狀態。</li>
+</ul>
+<p>撤回或授權失效後，本機 token 會被移除，只留下不含 YouTube 內容的撤回或重新授權標記。你也可以隨時請 Agent 或自行刪除私人資料夾中的 <code>managed/youtube</code> 資料夾；這不影響 YouTube 上的資料，也不會刪除 Raindrop 中的收藏。</p>
+<p>這些資料不會自動傳給維護者；Milktea Resource Library 沒有維護者端的伺服器或資料庫。</p>
+
+<h2>6. 交給你選用的 Agent 處理</h2>
+<ul>
+  <li>當次讀取結果會回到你自己的 Agent 工作階段，交給該 Agent 及其模型服務處理，用來辨識原始資源。</li>
+  <li>工具不會把 OAuth token 放進交給模型的結果或錯誤訊息；但 Agent 在你的電腦上有你授予的檔案存取權。</li>
+  <li>Agent 的對話紀錄、工具回應，以及服務供應商保存的內容，不在本工具的自動清理範圍內，依你與該服務之間的條款與設定處理。請自行檢查其資料保存與訓練設定。</li>
+</ul>
+
+<h2>7. 寫入你自己的 Raindrop</h2>
+<ul>
+  <li>只有你授權整理、且已核實的原始資源，才會寫入你自己的 Raindrop.io。</li>
+  <li>寫入內容：原始資源的網址、標題、依原始資源撰寫的繁體中文摘要、用途標籤，以及作為發現來源的 YouTube 影片網址。</li>
+  <li>整份播放清單與 OAuth 憑證不會寫入 Raindrop。這些收藏由你在 Raindrop 管理，本工具不會刪除。</li>
+  <li>除你選用的 Agent 服務與你自己的 Raindrop 外，工具不把資料傳給其他第三方。</li>
+</ul>
+
+<h2>8. 撤回授權</h2>
+<ul>
+  <li>在 Google 撤回：前往 <a href="https://security.google.com/settings/security/permissions">Google 帳戶的第三方存取權設定</a>移除此 app。工具在下次執行時發現授權失效，會移除本機 token，並請你重新同意。</li>
+  <li>透過工具撤回：Agent 會立即呼叫 Google 撤銷端點並移除本機 token。授權流程正在進行中時，也不會保存新的授權。</li>
+  <li>撤回後，工具不會自行重新取得授權；只有你明確要求恢復時才會重新開始。</li>
+  <li>配額、限流、網路或平台錯誤不會被當成授權過期，也不會反覆重新授權。</li>
+</ul>
+
+<h2>9. 瀏覽本網站</h2>
+<p>本網站以 GitHub Pages 託管於 <a href="https://royalmilkteamaster.github.io/Milktea-Resource-Library/">https://royalmilkteamaster.github.io/Milktea-Resource-Library/</a>，只有兩個靜態頁面，不使用 JavaScript、Cookie、分析工具、表單或登入。依 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">GitHub Pages 說明</a>，GitHub 會為安全目的記錄並保存訪客的 IP 位址；見 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 隱私權聲明</a>。維護者不會另外收集訪客資料。</p>
+
+<h2>10. 每位使用者各自負責自己的 Google project</h2>
+<p>分享的套件只包含程式與空白設定範本，不含任何人的帳號、授權或私人資料。每位使用者以自己的 Google project 與 OAuth client 使用，不共用他人的 client。</p>
+
+<h2>11. 聯絡方式</h2>
+<p>隱私問題或申訴，請在 <a href="https://github.com/RoyalMilkteaMaster/Milktea-Resource-Library/issues">https://github.com/RoyalMilkteaMaster/Milktea-Resource-Library/issues</a> 提出。這個頁面是公開的，請勿張貼私人資料、token 或播放清單內容。</p>
+
+<h2>12. 本政策的變更</h2>
+<p>內容變更時會更新本頁與頁面更新日。</p>
+
+<p><a href="index.html">回到首頁</a></p>
+</body>
+</html>

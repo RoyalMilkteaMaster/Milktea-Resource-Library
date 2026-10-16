@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Milktea Resource Library</title>
+</head>
+<body>
+<h1>Milktea Resource Library</h1>
+<p>頁面更新日：2026-10-16</p>
+<p>Milktea Resource Library 是在<strong>使用者自己的電腦</strong>上執行的個人整理工作流。使用者在自己的電腦開啟 Codex 或 Claude Code 等 Agent，請它讀取自己指定的來源，追查分享內容介紹的原始資源，再把核實過的資源與簡短摘要存入使用者自己的 Raindrop.io。</p>
+<p>它沒有線上服務、帳號系統或維護者端的伺服器與資料庫；本網站只是靜態說明頁。每次整理都由使用者當次要求才執行，不在背景定期同步。</p>
+<p>目前狀態：本套件仍在驗收中。本頁說明工具的設計行為，不代表已通過完整驗收，也不代表已通過 Google 驗證。</p>
+
+<h2>YouTube 功能</h2>
+<p>本工具的 YouTube 功能使用 YouTube API Services。使用這項功能，即表示你同意受 <a href="https://www.youtube.com/t/terms">YouTube 服務條款</a>約束。Google 如何處理你的資料，見 <a href="https://policies.google.com/privacy">Google 隱私權政策</a>。</p>
+<ul>
+  <li>每位使用者建立自己的 Google Cloud project 與 Desktop OAuth client，只供自己使用；不同使用者之間不共用 client 或授權。</li>
+  <li>只要求唯讀權限 <code>youtube.readonly</code>。授權在使用者電腦的系統瀏覽器完成，結果回到本機 <code>127.0.0.1</code>。</li>
+  <li>工具只讀取：授權帳號的 channel、使用者指定的一個自建播放清單，以及清單中各影片的識別、標題、說明、上傳 channel、時間與狀態。</li>
+  <li>工具不會新增、修改或刪除 YouTube 內容，不讀取稍後觀看、觀看紀錄或其他清單，也不觀看影片。</li>
+  <li>影片標題與說明只用來發現影片介紹的原始資源；收藏的摘要依據已核實的原始資源。</li>
+</ul>
+
+<h2>資料去向摘要</h2>
+<ul>
+  <li>YouTube 回傳的來源內容只在當次整理中使用，工具不把它寫入本機的持久來源快取。下次整理會重新讀取播放清單。</li>
+  <li>工具在使用者電腦的私人資料夾保存必要的 OAuth 授權資料、使用者設定，以及不含 YouTube 內容的「是否需要重新讀取／重新授權」狀態。</li>
+  <li>當次讀取結果會交給使用者自己選用的 Agent 處理。Agent 的對話紀錄與服務供應商保存的內容，不在本工具的自動清理範圍內，依使用者與該服務的條款與設定處理。</li>
+  <li>只有使用者授權整理、且已核實的原始資源，才會存入使用者自己的 Raindrop。</li>
+  <li>這些資料不會自動傳給維護者。</li>
+</ul>
+<p>詳細說明見<a href="privacy.html">隱私權政策</a>。</p>
+
+<h2>誰做什麼</h2>
+<ul>
+  <li>Agent 負責一般設定與登入、沿用登入狀態、執行讀取、刷新授權，以及整理與寫入 Raindrop。</li>
+  <li>使用者本人只處理平台要求的本人驗證，以及 Google 同意畫面上的選擇與同意；確認回報的 channel 是自己的；決定撤回或恢復授權。</li>
+</ul>
+
+<h2>撤回授權</h2>
+<p>你可以隨時在 <a href="https://security.google.com/settings/security/permissions">Google 帳戶的第三方存取權設定</a>移除此 app，或請 Agent 執行撤回。</p>
+
+<h2>本網站</h2>
+<p>本網站以 GitHub Pages 託管於 <a href="https://royalmilkteamaster.github.io/Milktea-Resource-Library/">https://royalmilkteamaster.github.io/Milktea-Resource-Library/</a>，只有本頁與隱私權政策兩個靜態頁面。頁面不使用 JavaScript、Cookie、分析工具、表單或登入。GitHub 會為安全目的記錄訪客的 IP 位址，見 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">GitHub Pages 說明</a>與 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 隱私權聲明</a>。</p>
+
+<h2>聯絡方式</h2>
+<p>請在 <a href="https://github.com/RoyalMilkteaMaster/Milktea-Resource-Library/issues">https://github.com/RoyalMilkteaMaster/Milktea-Resource-Library/issues</a> 提出問題。這個頁面是公開的，請勿張貼私人資料、token 或播放清單內容。</p>
+
+<p><a href="privacy.html">隱私權政策</a></p>
+</body>
+</html>
